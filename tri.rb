@@ -1,5 +1,5 @@
 class Tri
-  def at(n)
+  def self.at(n)
     raise "invalid index" unless n > 0
     
     arr = [0, 0, 1]

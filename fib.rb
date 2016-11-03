@@ -1,5 +1,5 @@
 class Fib
-  def at(n)
+  def self.at(n)
     raise "invalid index" unless n > 0
 
     if n == 1
@@ -11,7 +11,7 @@ class Fib
     end
   end
 
-  def at2(n)
+  def self.at2(n)
     raise "invalid index" unless n > 0
 
     arr = [0, 1]
