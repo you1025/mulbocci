@@ -1,6 +1,6 @@
 class Fib
   def self.at(n)
-    raise "invalid index" unless n > 0
+    raise "invalid index: argument must be a natural number" unless n > 0 && n.is_a?(Integer)
 
     if n == 1
       0
@@ -12,7 +12,7 @@ class Fib
   end
 
   def self.at2(n)
-    raise "invalid index" unless n > 0
+    raise "invalid index: argument must be a natural number" unless n > 0 && n.is_a?(Integer)
 
     arr = [0, 1]
     if n == 1

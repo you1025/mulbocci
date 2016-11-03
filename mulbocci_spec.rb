@@ -68,6 +68,11 @@ describe "Multi Bocci Test" do
         it {expect {fib.at(-5)}.to raise_error(RuntimeError)}
       end
 
+      context "with not-integer index" do
+        it {expect {fib.at(1.5)}.to raise_error(RuntimeError)}
+        it {expect {fib.at(10.0)}.to raise_error(RuntimeError)}
+      end
+
       context "with lte 2" do
         it {fib.at(1).should == 0}
         it {fib.at(2).should == 1}
@@ -98,6 +103,11 @@ describe "Multi Bocci Test" do
         it {expect {tri.at(-1)}.to raise_error(RuntimeError)}
         it {expect {tri.at(-2)}.to raise_error(RuntimeError)}
         it {expect {tri.at(-5)}.to raise_error(RuntimeError)}
+      end
+
+      context "with not-integer index" do
+        it {expect {tri.at(1.5)}.to raise_error(RuntimeError)}
+        it {expect {tri.at(10.0)}.to raise_error(RuntimeError)}
       end
 
       context "with lte 3" do

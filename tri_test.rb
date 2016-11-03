@@ -60,6 +60,15 @@ class TriTest < Test::Unit::TestCase
     end
   end
 
+  def test_at_not_integer
+    assert_raise RuntimeError do
+      Tri.at 1.5
+    end
+    assert_raise RuntimeError do
+      Tri.at 10.5
+    end
+  end
+
   def teardown
   end
 end

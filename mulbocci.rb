@@ -14,14 +14,14 @@ class Mulbocci
     self.new(Array.new(size-1, 0).push(1))
   end
 
-  def at(index)
-    raise "invalid index!" unless index > 0
+  def at(n)
+    raise "invalid index: argument must be a natural number" unless n > 0 && n.is_a?(Integer)
 
-    if index <= @size
-      @initials[index-1]
+    if n <= @size
+      @initials[n-1]
     else
       arr = Marshal.load(Marshal.dump(@initials))
-      ((@size+1)..index).each do
+      ((@size+1)..n).each do
         sum = arr.reduce{|sum, value| sum += value}
         arr[0..(@size-2)] = arr[1..(@size-1)]
         arr[-1] = sum

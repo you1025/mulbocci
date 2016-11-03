@@ -36,6 +36,15 @@ class FibonacciTest < Test::Unit::TestCase
     end
   end
 
+  def test_at_not_integer
+    assert_raise RuntimeError do
+      @fib.at 1.5
+    end
+    assert_raise RuntimeError do
+      @fib.at 10.1
+    end
+  end
+
   def test_at_first2
     assert_equal(0, @fib.at(1))
     assert_equal(1, @fib.at(2))
@@ -68,6 +77,13 @@ class TribocciTest < Test::Unit::TestCase
     assert_raise RuntimeError do
       @tri.at(-1)
       @tri.at(-5)
+    end
+  end
+
+  def test_at_not_integer
+    assert_raise RuntimeError do
+      @tri.at 1.5
+      @tri.at 10.1
     end
   end
 
