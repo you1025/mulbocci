@@ -58,10 +58,11 @@ Tri.at 1.0  # RuntimeError: invalid index: argument must be a natural number
 ```
 
 # Mulbocci
-N 項による拡張フィボナッチ数列
+N 項による拡張フィボナッチ数列  
+N+1 項間の漸化式
 
-* Mulbocci.new(initials): 数列の初期値となる配列を引数に指定(デフォルトは [0, 1])
-* Mulbocci.new_with_size(size): 数列のサイズを引数に指定(デフォルトは2)
+* Mulbocci::new(initials): 数列の初期値となる配列を引数に指定(デフォルトは [0, 1])
+* Mulbocci::new_with_size(size): 数列のサイズを引数に指定(デフォルトは2)
 
 ## 初期値の配列を指定する方法
 
@@ -86,11 +87,10 @@ tri2.at 10                    # 230
 ```
 
 ## サイズを指定する方法
-N+1 項間の漸化式
 
-初期値 v は下記の通り
-* v_1 〜 v_N-1: 0
-* v_N: 1
+初期値 initials は下記に従って自動で設定される
+* initials[0] 〜 initials[N-2]: 0
+* initials[N-1]: 1
 
 ```ruby
 # フィボナッチ数列
@@ -104,6 +104,12 @@ tri = Mulbocci.new_with_size 3
 tri.size                        # 3
 tri.initials                    # [0, 0, 1]
 tri.at 10                       # 44
+
+# 4項フィボナッチ数列
+Mulbocci.new_with_size(4).at 10 # 29
+
+# 5項フィボナッチ数列
+Mulbocci.new_with_size(5).at 10 # 16
 ```
 
 # テスト
